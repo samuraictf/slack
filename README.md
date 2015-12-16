@@ -44,4 +44,4 @@ $ echo 'bot-name #general Hello, world!' > slack
 
 ## Ideas for Usage
 
-One idea for usage is to hook up an `inotify` listener to it.
+One idea for usage is to hook up an [`inotify` listener to it](https://github.com/samuraictf/inotifyd).
