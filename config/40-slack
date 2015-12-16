@@ -4,6 +4,9 @@
 : ${SLACK_ENABLED:=true}
 export SLACK_ENABLED
 
+: ${ERRORCHAN:=#general}
+export ERRORCHAN
+
 # You must create a Incoming Webhook URL for this to function properly.
 #
 # This is a magic URL which has all of the privileges of a real user.
