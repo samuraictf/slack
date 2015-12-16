@@ -4,10 +4,6 @@
 : ${SLACK_ENABLED:=true}
 export SLACK_ENABLED
 
-# Channel into which the messages will go
-: ${SLACK_CHANNEL:="#scrimmage-testing"}
-export SLACK_CHANNEL
-
 # You must create a Incoming Webhook URL for this to function properly.
 #
 # This is a magic URL which has all of the privileges of a real user.
@@ -18,9 +14,6 @@ export SLACK_CHANNEL
 # : ${SLACK_URL:="https://hooks.slack.com/services/XXXX"}
 #
 export SLACK_URL
-
-# Bot name to use in the channel
-export SLACK_BOT_NAME="samurai-slack-sh"
 
 slack_encode() {
   echo "$*" | python -c 'import cgi, sys; print cgi.escape(sys.stdin.read())'
