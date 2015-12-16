@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Server to monitor
-: ${DEPLOY_SERVER:=irc.riggle.me}
+: ${DEPLOY_SERVER:=localhost}
 
 # Port to SSH in to $DEPLOY_SERVER
 : ${DEPLOY_PORT:=22}
 
 # Username to log in as on $DEPLOY_SERVER
-: ${DEPLOY_USER:=user}
+: ${DEPLOY_USER:=ctf}
 
 # Helper SSH function
 : ${DEPLOY_SSH:="ssh ${DEPLOY_USER}@${DEPLOY_SERVER} -p${DEPLOY_PORT}"}
