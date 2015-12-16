@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Log to syslog as well as stderr
+log() {
+	mkdir -p "$SLACK_PATH/logs/"
+	/usr/bin/logger -s -p local3.info -t SLACK "$*"
+	echo "$(date +%T) $*" >>"$SLACK_PATH/logs/$(date +%Y%m%d).log"
+}

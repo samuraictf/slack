@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# Used to quickly toggle slack usage
+: ${SLACK_ENABLED:=true}
+export SLACK_ENABLED
+
+# Channel into which the messages will go
+: ${SLACK_CHANNEL:="#scrimmage-testing"}
+export SLACK_CHANNEL
+
+# You must create a Incoming Webhook URL for this to function properly.
+#
+# This is a magic URL which has all of the privileges of a real user.
+# Protect this URL like a password.
+#
+# For the sake of a demo, I have picked a random one from Github.
+#
+# : ${SLACK_URL:="https://hooks.slack.com/services/XXXX"}
+#
+export SLACK_URL
+
+# Bot name to use in the channel
+export SLACK_BOT_NAME="samurai-slack-sh"
+
+slack_encode() {
+  echo "$*" | python -c 'import cgi, sys; print cgi.escape(sys.stdin.read())'
+}
+
+# Argument fed version of slack_msg
+slack_msg_custom() {
+    $SLACK_ENABLED || return;
+    local CHANNEL="$1"
+    shift
+    local BOT_NAME="$1"
+    shift
+    http --ignore-stdin post \
+        "$SLACK_URL" \
+        "channel=$CHANNEL" \
+        "username=$BOT_NAME" \
+        "icon_url=$ICON" \
+        "text=${EMOJI} $(slack_encode $@)"
+}

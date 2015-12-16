@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Server to monitor
+: ${DEPLOY_SERVER:=irc.riggle.me}
+
+# Port to SSH in to $DEPLOY_SERVER
+: ${DEPLOY_PORT:=22}
+
+# Username to log in as on $DEPLOY_SERVER
+: ${DEPLOY_USER:=user}
+
+# Helper SSH function
+: ${DEPLOY_SSH:="ssh ${DEPLOY_USER}@${DEPLOY_SERVER} -p${DEPLOY_PORT}"}
+
+# Convenience variable for deploy scripts to locate gamebox
+export DEPLOY_SERVER
+export DEPLOY_USER
+export DEPLOY_PORT
+export DEPLOY_SSH
