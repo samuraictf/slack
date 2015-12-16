@@ -4,7 +4,7 @@ Most attack-defend CTFs (including DEFCON Finals) have a segregated game network
 
 This project is effectively a fifo that sits on the game box at `/home/ctf/slack`.  Write to it, and data gets forwarded to Slack an accomplice machine which is connected to both the game network and the public internet (e.g. a competitor's laptop).
 
-The first two space-delimited fields are the channel and username, for example `#ctf` and `funbot`.
+The first two space-delimited fields are the username and channel, for example `funbot` and `#ctf`.  The rest of the line is interpreted as the message to post.
 
 The script `./slack.sh` runs on a machine which has a connection both to the game network and the internet.
 
