@@ -1,7 +1,8 @@
 # slack
 
-A fifo that sits on the game box at `/home/ctf/slack`.
-Write to it, and data gets forwarded to slack.
+Most attack-defend CTFs (including DEFCON Finals) have a segregated game network, which is not directly connected to the internet.  The server which each team must defend from other attackers has no route to the internet.  This causes problems when trying to disseminate time-critical information, like when a CTF service is being exploited.
+
+This project is effectively a fifo that sits on the game box at `/home/ctf/slack`.  Write to it, and data gets forwarded to Slack an accomplice machine which is connected to both the game network and the public internet (e.g. a competitor's laptop).
 
 The first two space-delimited fields are the channel and username, for example `#ctf` and `funbot`.
 
